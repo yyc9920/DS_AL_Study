@@ -5,7 +5,6 @@ int BSearch(int ar[], int len, int target) {
   int last = len - 1;   //탐색 대상의 마지막 인덱스 값
   int mid;
 
-
   while(first <= last) {
     mid = (first + last) / 2;             //탐색 대상의 중앙을 찾는다.
 
