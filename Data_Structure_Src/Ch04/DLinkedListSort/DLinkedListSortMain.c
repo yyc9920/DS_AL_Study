@@ -4,27 +4,27 @@
 int WhoIsPrecede(int d1, int d2)
 {
 	if(d1 < d2)
-		return 0;    // d1ÀÌ Á¤·Ä ¼ø¼­»ó ¾Õ¼±´Ù.
+		return 0;    // d1ì´ ì •ë ¬ ìˆœì„œìƒ ì•žì„ ë‹¤.
 	else
-		return 1;    // d2°¡ Á¤·Ä ¼ø¼­»ó ¾Õ¼­°Å³ª °°´Ù.
+		return 1;    // d2ê°€ ì •ë ¬ ìˆœì„œìƒ ì•žì„œê±°ë‚˜ ê°™ë‹¤.
 }
 
 int main(void)
 {
-	// ListÀÇ »ý¼º ¹× ÃÊ±âÈ­  ////////////
+	// Listì˜ ìƒì„± ë° ì´ˆê¸°í™”  ////////////
 	List list;
 	int data;
 	ListInit(&list);
 
 	SetSortRule(&list, WhoIsPrecede);
 
-	// 5°³ÀÇ µ¥ÀÌÅÍ ÀúÀå  ///////////////
+	// 5ê°œì˜ ë°ì´í„° ì €ìž¥  ///////////////
 	LInsert(&list, 11);  LInsert(&list, 11);
 	LInsert(&list, 22);  LInsert(&list, 22);
 	LInsert(&list, 33);
 
-	// ÀúÀåµÈ µ¥ÀÌÅÍÀÇ ÀüÃ¼ Ãâ·Â ////////////
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));
+	// ì €ìž¥ëœ ë°ì´í„°ì˜ ì „ì²´ ì¶œë ¥ ////////////
+	printf("í˜„ìž¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));
 
 	if(LFirst(&list, &data))
 	{
@@ -35,7 +35,7 @@ int main(void)
 	}
 	printf("\n\n");
 
-	// ¼ýÀÚ 22À» °Ë»öÇÏ¿© ¸ðµÎ »èÁ¦ ////////////
+	// ìˆ«ìž 22ì„ ê²€ìƒ‰í•˜ì—¬ ëª¨ë‘ ì‚­ì œ ////////////
 	if(LFirst(&list, &data))
 	{
 		if(data == 22)
@@ -48,8 +48,8 @@ int main(void)
 		}
 	}
 
-	// »èÁ¦ ÈÄ ÀúÀåµÈ µ¥ÀÌÅÍ ÀüÃ¼ Ãâ·Â ////////////
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));
+	// ì‚­ì œ í›„ ì €ìž¥ëœ ë°ì´í„° ì „ì²´ ì¶œë ¥ ////////////
+	printf("í˜„ìž¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));
 
 	if(LFirst(&list, &data))
 	{

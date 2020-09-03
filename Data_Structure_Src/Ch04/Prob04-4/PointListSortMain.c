@@ -28,7 +28,7 @@ int main(void)
 	Point * pPoint;
 	ListInit(&list);
 
-	SetSortRule(&list, WhoIsPrecede);     // Á¤·Ä±âÁØÀ» µî·Ï!
+	SetSortRule(&list, WhoIsPrecede);     // ì •ë ¬ê¸°ì¤€ì„ ë“±ë¡!
 
 	pPoint = (Point*)malloc(sizeof(Point));
 	SetPointPos(pPoint, 3, 2);
@@ -46,7 +46,7 @@ int main(void)
 	SetPointPos(pPoint, 2, 1);
 	LInsert(&list, pPoint);
 
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));
+	printf("í˜„ì¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));
 
 	if(LFirst(&list, &pPoint))
 	{
@@ -57,7 +57,7 @@ int main(void)
 	}
 	printf("\n");
 
-	// xpos°¡ 2ÀÎ ¸ğµç µ¥ÀÌÅÍ »èÁ¦  ////////
+	// xposê°€ 2ì¸ ëª¨ë“  ë°ì´í„° ì‚­ì œ  ////////
 	comp.xpos = 2;
 	comp.ypos = 0;
 
@@ -79,8 +79,8 @@ int main(void)
 		}
 	}
 
-	// »èÁ¦ ÈÄ ÀúÀåµÈ µ¥ÀÌÅÍ Ãâ·Â ////////
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));
+	// ì‚­ì œ í›„ ì €ì¥ëœ ë°ì´í„° ì¶œë ¥ ////////
+	printf("í˜„ì¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));
 
 	if(LFirst(&list, &pPoint))
 	{
