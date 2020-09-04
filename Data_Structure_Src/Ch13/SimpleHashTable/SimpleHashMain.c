@@ -5,7 +5,7 @@
 
 int MyHashFunc(int k)
 {
-	return k % 100;    // Å°¸¦ ºÎºĞÀûÀ¸·Î¸¸ »ç¿ëÇÑ º°·Î ÁÁÁö ¾ÊÀº ÇØ½¬ÀÇ ¿¹!!!
+	return k % 100;    // í‚¤ë¥¼ ë¶€ë¶„ì ìœ¼ë¡œë§Œ ì‚¬ìš©í•œ ë³„ë¡œ ì¢‹ì§€ ì•Šì€ í•´ì‰¬ì˜ ì˜ˆ!!!
 }
 
 int main(void)
@@ -17,7 +17,7 @@ int main(void)
 
 	TBLInit(&myTbl, MyHashFunc);
 
-	// µ¥ÀÌÅÍ ÀÔ·Â
+	// ë°ì´í„° ì…ë ¥
 	np = MakePersonData(20120003, "Lee", "Seoul");
 	TBLInsert(&myTbl, GetSSN(np), np);
 
@@ -27,7 +27,7 @@ int main(void)
 	np = MakePersonData(20170049, "HAN", "Kangwon");
 	TBLInsert(&myTbl, GetSSN(np), np);
 
-	// µ¥ÀÌÅÍ °Ë»ö
+	// ë°ì´í„° ê²€ìƒ‰
 	sp = TBLSearch(&myTbl, 20120003);
 	if(sp != NULL)
 		ShowPerInfo(sp);
@@ -40,7 +40,7 @@ int main(void)
 	if(sp != NULL)
 		ShowPerInfo(sp);
 
-	// µ¥ÀÌÅÍ »èÁ¦
+	// ë°ì´í„° ì‚­ì œ
 	rp = TBLDelete(&myTbl, 20120003);
 	if(rp != NULL)
 		free(rp);

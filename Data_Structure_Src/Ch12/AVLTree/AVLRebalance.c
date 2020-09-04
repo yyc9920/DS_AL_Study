@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "BinaryTree3.h"
 
-// LL È¸Àü
+// LL íšŒì „
 BTreeNode * RotateLL(BTreeNode * bst)
 {
 	BTreeNode * pNode;
@@ -15,7 +15,7 @@ BTreeNode * RotateLL(BTreeNode * bst)
 	return cNode;
 }
 
-// RR È¸Àü
+// RR íšŒì „
 BTreeNode * RotateRR(BTreeNode * bst)
 {
 	BTreeNode * pNode;
@@ -29,7 +29,7 @@ BTreeNode * RotateRR(BTreeNode * bst)
 	return cNode;
 }
 
-// RL È¸Àü
+// RL íšŒì „
 BTreeNode * RotateRL(BTreeNode * bst)
 {
 	BTreeNode * pNode;
@@ -38,11 +38,11 @@ BTreeNode * RotateRL(BTreeNode * bst)
 	pNode = bst;
 	cNode = GetRightSubTree(pNode);
 
-	ChangeRightSubTree(pNode, RotateLL(cNode));   // ºÎºÐÀû LL È¸Àü
-	return RotateRR(pNode);     // RR È¸Àü
+	ChangeRightSubTree(pNode, RotateLL(cNode));   // ë¶€ë¶„ì  LL íšŒì „
+	return RotateRR(pNode);     // RR íšŒì „
 }
 
-// LR È¸Àü
+// LR íšŒì „
 BTreeNode * RotateLR(BTreeNode * bst)
 {
 	BTreeNode * pNode;
@@ -51,11 +51,11 @@ BTreeNode * RotateLR(BTreeNode * bst)
 	pNode = bst;
 	cNode = GetLeftSubTree(pNode);
 	
-	ChangeLeftSubTree(pNode, RotateRR(cNode));   // ºÎºÐÀû RR È¸Àü
-	return RotateLL(pNode);     // LL È¸Àü
+	ChangeLeftSubTree(pNode, RotateRR(cNode));   // ë¶€ë¶„ì  RR íšŒì „
+	return RotateLL(pNode);     // LL íšŒì „
 }
 
-// Æ®¸®ÀÇ ³ôÀÌ¸¦ °è»êÇÏ¿© ¹ÝÈ¯
+// íŠ¸ë¦¬ì˜ ë†’ì´ë¥¼ ê³„ì‚°í•˜ì—¬ ë°˜í™˜
 int GetHeight(BTreeNode * bst) 
 {
 	int leftH;		// left height
@@ -64,20 +64,20 @@ int GetHeight(BTreeNode * bst)
 	if(bst == NULL)
 		return 0;
 
-	// ¿ÞÂÊ ¼­ºê Æ®¸® ³ôÀÌ °è»ê
+	// ì™¼ìª½ ì„œë¸Œ íŠ¸ë¦¬ ë†’ì´ ê³„ì‚°
 	leftH = GetHeight(GetLeftSubTree(bst));
 
-	// ¿À¸¥ÂÊ ¼­ºê Æ®¸® ³ôÀÌ °è»ê
+	// ì˜¤ë¥¸ìª½ ì„œë¸Œ íŠ¸ë¦¬ ë†’ì´ ê³„ì‚°
 	rightH = GetHeight(GetRightSubTree(bst));
 
-	// Å« °ªÀÇ ³ôÀÌ¸¦ ¹ÝÈ¯ÇÑ´Ù.
+	// í° ê°’ì˜ ë†’ì´ë¥¼ ë°˜í™˜í•œë‹¤.
 	if(leftH > rightH)
 		return leftH + 1;
 	else
 		return rightH + 1;
 }
 
-// µÎ ¼­ºê Æ®¸®ÀÇ ³ôÀÌÀÇ Â÷¸¦ ¹ÝÈ¯
+// ë‘ ì„œë¸Œ íŠ¸ë¦¬ì˜ ë†’ì´ì˜ ì°¨ë¥¼ ë°˜í™˜
 int GetHeightDiff(BTreeNode * bst)
 {
 	int lsh;    // left sub tree height
@@ -92,12 +92,12 @@ int GetHeightDiff(BTreeNode * bst)
 	return lsh - rsh;
 }
 
-// Æ®¸®ÀÇ ±ÕÇüÀ» Àâ´Â´Ù.
+// íŠ¸ë¦¬ì˜ ê· í˜•ì„ ìž¡ëŠ”ë‹¤.
 BTreeNode * Rebalance(BTreeNode ** pRoot)
 {
 	int hDiff = GetHeightDiff(*pRoot);
 
-	if(hDiff > 1)     // ¿ÞÂÊ ¼­ºê Æ®¸® ¹æÇâÀ¸·Î ³ôÀÌ°¡ 2 ÀÌ»ó Å©´Ù¸é
+	if(hDiff > 1)     // ì™¼ìª½ ì„œë¸Œ íŠ¸ë¦¬ ë°©í–¥ìœ¼ë¡œ ë†’ì´ê°€ 2 ì´ìƒ í¬ë‹¤ë©´
 	{
 		if(GetHeightDiff(GetLeftSubTree(*pRoot)) > 0)
 			*pRoot = RotateLL(*pRoot);
@@ -105,7 +105,7 @@ BTreeNode * Rebalance(BTreeNode ** pRoot)
 			*pRoot = RotateLR(*pRoot);
 	}
 	
-	if(hDiff < -1)     // ¿À¸¥ÂÊ ¼­ºê Æ®¸® ¹æÇâÀ¸·Î 2 ÀÌ»ó Å©´Ù¸é
+	if(hDiff < -1)     // ì˜¤ë¥¸ìª½ ì„œë¸Œ íŠ¸ë¦¬ ë°©í–¥ìœ¼ë¡œ 2 ì´ìƒ í¬ë‹¤ë©´
 	{
 		if(GetHeightDiff(GetRightSubTree(*pRoot)) < 0)
 			*pRoot = RotateRR(*pRoot);

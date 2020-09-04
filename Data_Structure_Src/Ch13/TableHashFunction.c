@@ -2,8 +2,8 @@
 
 typedef struct _empInfo
 {
-	int empNum;    // Á÷¿øÀÇ °íÀ¯¹øÈ£
-	int age;     // Á÷¿øÀÇ ³ªÀÌ
+	int empNum;    // ì§ì›ì˜ ê³ ìœ ë²ˆí˜¸
+	int age;     // ì§ì›ì˜ ë‚˜ì´
 }EmpInfo;
 
 int GetHashValue(int empNum)
@@ -21,19 +21,19 @@ int main(void)
 
 	EmpInfo r1, r2, r3;
 
-	// Å°¸¦ ÀÎµ¦½º °ªÀ¸·Î ÀÌ¿ëÇØ¼­ ÀúÀå
+	// í‚¤ë¥¼ ì¸ë±ìŠ¤ ê°’ìœ¼ë¡œ ì´ìš©í•´ì„œ ì €ì¥
 	empInfoArr[GetHashValue(emp1.empNum)] = emp1;
 	empInfoArr[GetHashValue(emp2.empNum)] = emp2;
 	empInfoArr[GetHashValue(emp3.empNum)] = emp3;
 
-	// Å°¸¦ ÀÎµ¦½º °ªÀ¸·Î ÀÌ¿ëÇØ¼­ Å½»ö
+	// í‚¤ë¥¼ ì¸ë±ìŠ¤ ê°’ìœ¼ë¡œ ì´ìš©í•´ì„œ íƒìƒ‰
 	r1 = empInfoArr[GetHashValue(20120003)];
 	r2 = empInfoArr[GetHashValue(20130012)];
 	r3 = empInfoArr[GetHashValue(20170049)];
 
-	// Å½»ö °á°ú È®ÀÎ
-	printf("»ç¹ø %d, ³ªÀÌ %d \n", r1.empNum, r1.age);
-	printf("»ç¹ø %d, ³ªÀÌ %d \n", r2.empNum, r2.age);
-	printf("»ç¹ø %d, ³ªÀÌ %d \n", r3.empNum, r3.age);
+	// íƒìƒ‰ ê²°ê³¼ í™•ì¸
+	printf("ì‚¬ë²ˆ %d, ë‚˜ì´ %d \n", r1.empNum, r1.age);
+	printf("ì‚¬ë²ˆ %d, ë‚˜ì´ %d \n", r2.empNum, r2.age);
+	printf("ì‚¬ë²ˆ %d, ë‚˜ì´ %d \n", r3.empNum, r3.age);
 	return 0;
 }

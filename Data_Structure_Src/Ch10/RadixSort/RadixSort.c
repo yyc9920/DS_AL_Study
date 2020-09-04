@@ -3,7 +3,7 @@
 
 #define BUCKET_NUM		10
 
-void RadixSort(int arr[], int num, int maxLen)   // maxLenÀº °¡Àå ±ä µ¥ÀÌÅÍÀÇ ±æÀÌ
+void RadixSort(int arr[], int num, int maxLen)   // maxLenì€ ê°€ì¥ ê¸´ ë°ì´í„°ì˜ ê¸¸ì´
 {
 	Queue buckets[BUCKET_NUM];
 	int bi;
@@ -12,32 +12,32 @@ void RadixSort(int arr[], int num, int maxLen)   // maxLenÀº °¡Àå ±ä µ¥ÀÌÅÍÀÇ ±æ
 	int divfac = 1;
 	int radix;
 
-	// ÃÑ 10°³ÀÇ ¹öÅ¶ ÃÊ±âÈ­
+	// ì´ 10ê°œì˜ ë²„í‚· ì´ˆê¸°í™”
 	for(bi=0; bi<BUCKET_NUM; bi++)
 		QueueInit(&buckets[bi]);
 
-	// °¡Àå ±ä µ¥ÀÌÅÍÀÇ ±æÀÌ¸¸Å­ ¹İº¹
+	// ê°€ì¥ ê¸´ ë°ì´í„°ì˜ ê¸¸ì´ë§Œí¼ ë°˜ë³µ
 	for(pos=0; pos<maxLen; pos++)
 	{ 
-		// Á¤·Ä ´ë»óÀÇ ¼ö¸¸Å­ ¹İº¹
+		// ì •ë ¬ ëŒ€ìƒì˜ ìˆ˜ë§Œí¼ ë°˜ë³µ
 		for(di=0; di<num; di++)
 		{
-			// N¹øÂ° ÀÚ¸®ÀÇ ¼ıÀÚ ÃßÃâ
+			// Në²ˆì§¸ ìë¦¬ì˜ ìˆ«ì ì¶”ì¶œ
 			radix = (arr[di] / divfac) % 10;
 
-			// ÃßÃâÇÑ ¼ıÀÚ¸¦ ±Ù°Å·Î µ¥ÀÌÅÍ ¹öÅ¶¿¡ ÀúÀå
+			// ì¶”ì¶œí•œ ìˆ«ìë¥¼ ê·¼ê±°ë¡œ ë°ì´í„° ë²„í‚·ì— ì €ì¥
 			Enqueue(&buckets[radix], arr[di]);
 		}
 
-		// ¹öÅ¶ ¼ö¸¸Å­ ¹İº¹
+		// ë²„í‚· ìˆ˜ë§Œí¼ ë°˜ë³µ
 		for(bi=0, di=0; bi<BUCKET_NUM; bi++)
 		{
-			// ¹öÅ¶¿¡ ÀúÀåµÈ °Í ¼ø¼­´ë·Î ´Ù ²¨³»¼­ ´Ù½Ã arr¿¡ ÀúÀå
+			// ë²„í‚·ì— ì €ì¥ëœ ê²ƒ ìˆœì„œëŒ€ë¡œ ë‹¤ êº¼ë‚´ì„œ ë‹¤ì‹œ arrì— ì €ì¥
 			while(!QIsEmpty(&buckets[bi]))
 				arr[di++] = Dequeue(&buckets[bi]);
 		}
 
-		// N¹øÂ° ÀÚ¸®ÀÇ ¼ıÀÚ ÃßÃâÀ» À§ÇÑ ÇÇÁ¦¼öÀÇ Áõ°¡
+		// Në²ˆì§¸ ìë¦¬ì˜ ìˆ«ì ì¶”ì¶œì„ ìœ„í•œ í”¼ì œìˆ˜ì˜ ì¦ê°€
 		divfac *= 10;
 	}	
 }

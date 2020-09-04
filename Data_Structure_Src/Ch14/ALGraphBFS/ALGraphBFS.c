@@ -7,14 +7,14 @@
 
 int WhoIsPrecede(int data1, int data2);
 
-// ±×·¡ÇÁÀÇ ÃÊ±âÈ­
+// ê·¸ëž˜í”„ì˜ ì´ˆê¸°í™”
 void GraphInit(ALGraph * pg, int nv)
 {
 	int i;
 
 	pg->adjList = (List*)malloc(sizeof(List)*nv);
 	pg->numV = nv;
-	pg->numE = 0;     // ÃÊ±âÀÇ °£¼± ¼ö´Â 0°³
+	pg->numE = 0;     // ì´ˆê¸°ì˜ ê°„ì„  ìˆ˜ëŠ” 0ê°œ
 
 	for(i=0; i<nv; i++)
 	{
@@ -22,12 +22,12 @@ void GraphInit(ALGraph * pg, int nv)
 		SetSortRule(&(pg->adjList[i]), WhoIsPrecede); 
 	}
 
-	// Å½»ö Á¤º¸ µî·ÏÀ» À§ÇÑ °ø°£ÀÇ ÇÒ´ç ¹× ÃÊ±âÈ­
+	// íƒìƒ‰ ì •ë³´ ë“±ë¡ì„ ìœ„í•œ ê³µê°„ì˜ í• ë‹¹ ë° ì´ˆê¸°í™”
 	pg->visitInfo= (int *)malloc(sizeof(int) * pg->numV);
 	memset(pg->visitInfo, 0, sizeof(int) * pg->numV);
 }
 
-// ±×·¡ÇÁÀÇ ¸®¼Ò½º ÇØÁ¦
+// ê·¸ëž˜í”„ì˜ ë¦¬ì†ŒìŠ¤ í•´ì œ
 void GraphDestroy(ALGraph * pg)
 {
 	if(pg->adjList != NULL)
@@ -37,7 +37,7 @@ void GraphDestroy(ALGraph * pg)
 		free(pg->visitInfo);
 }
 
-// °£¼±ÀÇ Ãß°¡
+// ê°„ì„ ì˜ ì¶”ê°€
 void AddEdge(ALGraph * pg, int fromV, int toV)
 {
 	LInsert(&(pg->adjList[fromV]), toV);
@@ -45,7 +45,7 @@ void AddEdge(ALGraph * pg, int fromV, int toV)
 	pg->numE += 1;
 }
 
-// À¯Æ¿¸®Æ¼ ÇÔ¼ö: °£¼±ÀÇ Á¤º¸ Ãâ·Â
+// ìœ í‹¸ë¦¬í‹° í•¨ìˆ˜: ê°„ì„ ì˜ ì •ë³´ ì¶œë ¥
 void ShowGraphEdgeInfo(ALGraph * pg)
 {
 	int i;
@@ -53,7 +53,7 @@ void ShowGraphEdgeInfo(ALGraph * pg)
 
 	for(i=0; i<pg->numV; i++)
 	{
-		printf("%c¿Í ¿¬°áµÈ Á¤Á¡: ", i + 65);
+		printf("%cì™€ ì—°ê²°ëœ ì •ì : ", i + 65);
 		
 		if(LFirst(&(pg->adjList[i]), &vx))
 		{
@@ -80,24 +80,24 @@ int VisitVertex(ALGraph * pg, int visitV)
 	if(pg->visitInfo[visitV] == 0)
 	{
 		pg->visitInfo[visitV] = 1;
-		printf("%c ", visitV + 65);    // ¹æ¹® Á¤Á¡ Ãâ·Â
+		printf("%c ", visitV + 65);    // ë°©ë¬¸ ì •ì  ì¶œë ¥
 		return TRUE;
 	}
 	
 	return FALSE;
 }
 
-// Breadth First Search: Á¤Á¡ÀÇ Á¤º¸ Ãâ·Â
+// Breadth First Search: ì •ì ì˜ ì •ë³´ ì¶œë ¥
 void BFShowGraphVertex(ALGraph * pg, int startV)
 {
 	Queue queue;
 	int visitV = startV;
 	int nextV;
 
-	// DFS¸¦ À§ÇÑ Å¥ÀÇ ÃÊ±âÈ­
+	// DFSë¥¼ ìœ„í•œ íì˜ ì´ˆê¸°í™”
 	QueueInit(&queue);
 
-	// ½ÃÀÛ Á¤Á¡ Å½»ö
+	// ì‹œìž‘ ì •ì  íƒìƒ‰
 	VisitVertex(pg, visitV);
 
 	while(LFirst(&(pg->adjList[visitV]), &nextV) == TRUE)
@@ -111,12 +111,12 @@ void BFShowGraphVertex(ALGraph * pg, int startV)
 				Enqueue(&queue, nextV);
 		}
 
-		if(QIsEmpty(&queue) == TRUE)    // Å¥°¡ ºñ¸é BFS Á¾·á
+		if(QIsEmpty(&queue) == TRUE)    // íê°€ ë¹„ë©´ BFS ì¢…ë£Œ
 			break;
 		else
 			visitV = Dequeue(&queue);	
 	}
 
-	// Å½»ö Á¤º¸ ÃÊ±âÈ­
+	// íƒìƒ‰ ì •ë³´ ì´ˆê¸°í™”
 	memset(pg->visitInfo, 0, sizeof(int) * pg->numV);
 }

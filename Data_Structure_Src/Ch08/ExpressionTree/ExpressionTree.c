@@ -19,11 +19,11 @@ BTreeNode * MakeExpTree(char exp[])
 	{
 		pnode = MakeBTreeNode();
 
-		if(isdigit(exp[i]))		// ÇÇ¿¬»êÀÚ¶ó¸é...
+		if(isdigit(exp[i]))		// í”¼ì—°ì‚°ìë¼ë©´...
 		{
 			SetData(pnode, exp[i]-'0');
 		}
-		else					// ¿¬»êÀÚ¶ó¸é...
+		else					// ì—°ì‚°ìë¼ë©´...
 		{
 			MakeRightSubTree(pnode, SPop(&stack));
 			MakeLeftSubTree(pnode, SPop(&stack));

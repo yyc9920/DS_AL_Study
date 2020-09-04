@@ -25,7 +25,7 @@ void GraphInit(ALGraph * pg, int nv)
 	pg->visitInfo= (int *)malloc(sizeof(int) * pg->numV);
 	memset(pg->visitInfo, 0, sizeof(int) * pg->numV);
 
-	// ¿ì¼±¼øÀ§ Å¥ÀÇ ÃÊ±âÈ­
+	// ìš°ì„ ìˆœìœ„ íì˜ ì´ˆê¸°í™”
 	PQueueInit(&(pg->pqueue), PQWeightComp);
 }
 
@@ -40,13 +40,13 @@ void GraphDestroy(ALGraph * pg)
 
 void AddEdge(ALGraph * pg, int fromV, int toV, int weight)
 {
-	Edge edge = {fromV, toV, weight};     // °£¼±ÀÇ Á¤º¸ »ı¼º
+	Edge edge = {fromV, toV, weight};     // ê°„ì„ ì˜ ì •ë³´ ìƒì„±
 
 	LInsert(&(pg->adjList[fromV]), toV);
 	LInsert(&(pg->adjList[toV]), fromV);
 	pg->numE += 1;
 
-	// °£¼±ÀÇ Á¤º¸¸¦ ¿ì¼±¼øÀ§ Å¥¿¡ ÀúÀå
+	// ê°„ì„ ì˜ ì •ë³´ë¥¼ ìš°ì„ ìˆœìœ„ íì— ì €ì¥
 	PEnqueue(&(pg->pqueue), edge);
 }
 
@@ -58,7 +58,7 @@ void RecoverEdge(ALGraph * pg, int fromV, int toV, int weight)
 	(pg->numE)++;
 }
 
-// ÇÑÂÊ ¹æÇâÀÇ °£¼± ¼Ò¸ê: ConKruskalMST Helper function
+// í•œìª½ ë°©í–¥ì˜ ê°„ì„  ì†Œë©¸: ConKruskalMST Helper function
 void RemoveWayEdge(ALGraph * pg, int fromV, int toV)
 {
 	int edge;
@@ -82,7 +82,7 @@ void RemoveWayEdge(ALGraph * pg, int fromV, int toV)
 	}
 }
 
-// °£¼±ÀÇ ¼Ò¸ê: ConKruskalMST Helper function
+// ê°„ì„ ì˜ ì†Œë©¸: ConKruskalMST Helper function
 void RemoveEdge(ALGraph * pg, int fromV, int toV)
 {
 	RemoveWayEdge(pg, fromV, toV);
@@ -97,7 +97,7 @@ void ShowGraphEdgeInfo(ALGraph * pg)
 
 	for(i=0; i<pg->numV; i++)
 	{
-		printf("%c¿Í ¿¬°áµÈ Á¤Á¡: ", i + 65);
+		printf("%cì™€ ì—°ê²°ëœ ì •ì : ", i + 65);
 		
 		if(LFirst(&(pg->adjList[i]), &vx))
 		{
@@ -194,7 +194,7 @@ void DFShowGraphVertex(ALGraph * pg, int startV)
 	memset(pg->visitInfo, 0, sizeof(int) * pg->numV);
 }
 
-// µÎ Á¤Á¡ÀÌ ¿¬°áµÇ¾î ÀÖ´Ù¸é TRUE, ±×·¸Áö ¾Ê´Ù¸é FALSE ¹İÈ¯
+// ë‘ ì •ì ì´ ì—°ê²°ë˜ì–´ ìˆë‹¤ë©´ TRUE, ê·¸ë ‡ì§€ ì•Šë‹¤ë©´ FALSE ë°˜í™˜
 int IsConnVertex(ALGraph * pg, int v1, int v2)
 {
 	Stack stack;
@@ -256,16 +256,16 @@ int IsConnVertex(ALGraph * pg, int v1, int v2)
 }
 
 
-// MST °£¼±ÀÇ ¼ö + 1 == Á¤Á¡ÀÇ ¼ö
-// Å©·ç½ºÄ® ¾Ë°í¸®Áò ±â¹İ ÃÖ¼Ò ºñ¿ë ½ÅÀå Æ®¸®ÀÇ ±¸¼º
+// MST ê°„ì„ ì˜ ìˆ˜ + 1 == ì •ì ì˜ ìˆ˜
+// í¬ë£¨ìŠ¤ì¹¼ ì•Œê³ ë¦¬ì¦˜ ê¸°ë°˜ ìµœì†Œ ë¹„ìš© ì‹ ì¥ íŠ¸ë¦¬ì˜ êµ¬ì„±
 void ConKruskalMST(ALGraph * pg)
 {
-	Edge recvEdge[20];    // º¹¿øÇÒ °£¼±ÀÇ Á¤º¸ ÀúÀå
+	Edge recvEdge[20];    // ë³µì›í•  ê°„ì„ ì˜ ì •ë³´ ì €ì¥
 	Edge edge;
 	int eidx = 0;
 	int i;
 
-	// MST¸¦ Çü¼ºÇÒ ¶§±îÁö ¾Æ·¡ÀÇ while¹®À» ¹İº¹
+	// MSTë¥¼ í˜•ì„±í•  ë•Œê¹Œì§€ ì•„ë˜ì˜ whileë¬¸ì„ ë°˜ë³µ
 	while(pg->numE+1 > pg->numV)
 	{
 		edge = PDequeue(&(pg->pqueue));
@@ -278,7 +278,7 @@ void ConKruskalMST(ALGraph * pg)
 		}
 	}
 
-	// ¿ì¼±¼øÀ§ Å¥¿¡¼­ »èÁ¦µÈ °£¼±ÀÇ Á¤º¸¸¦ È¸º¹
+	// ìš°ì„ ìˆœìœ„ íì—ì„œ ì‚­ì œëœ ê°„ì„ ì˜ ì •ë³´ë¥¼ íšŒë³µ
 	for(i=0; i<eidx; i++)
 		PEnqueue(&(pg->pqueue), recvEdge[i]);
 

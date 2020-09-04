@@ -10,7 +10,7 @@ typedef struct _bTreeNode
 	struct _bTreeNode * right;
 } BTreeNode;
 
-/*** BTreeNode °ü·Ã ¿¬»êµé ****/
+/*** BTreeNode ê´€ë ¨ ì—°ì‚°ë“¤ ****/
 BTreeNode * MakeBTreeNode(void);
 BTData GetData(BTreeNode * bt);
 void SetData(BTreeNode * bt, BTData data);

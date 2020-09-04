@@ -7,17 +7,17 @@ void InserSort(int arr[], int n)
 
 	for(i=1; i<n; i++)
 	{
-		insData = arr[i];   // Á¤·Ä ´ë»óÀ» insData¿¡ ÀúÀå
+		insData = arr[i];   // ì •ë ¬ ëŒ€ìƒì„ insDataì— ì €ì¥
 
 		for(j=i-1; j>=0 ; j--)
 		{
 			if(arr[j] > insData) 
-				arr[j+1] = arr[j];    // ºñ±³ ´ë»ó ÇÑ Ä­ µÚ·Î ¹Ğ±â
+				arr[j+1] = arr[j];    // ë¹„êµ ëŒ€ìƒ í•œ ì¹¸ ë’¤ë¡œ ë°€ê¸°
 			else
-				break;   // »ğÀÔ À§Ä¡ Ã£¾ÒÀ¸´Ï Å»Ãâ!
+				break;   // ì‚½ì… ìœ„ì¹˜ ì°¾ì•˜ìœ¼ë‹ˆ íƒˆì¶œ!
 		}
 
-		arr[j+1] = insData;  // Ã£Àº À§Ä¡¿¡ Á¤·Ä ´ë»ó »ğÀÔ!
+		arr[j+1] = insData;  // ì°¾ì€ ìœ„ì¹˜ì— ì •ë ¬ ëŒ€ìƒ ì‚½ì…!
 	}
 }
 

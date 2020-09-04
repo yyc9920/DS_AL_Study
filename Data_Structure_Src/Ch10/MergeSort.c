@@ -43,14 +43,14 @@ void MergeSort(int arr[], int left, int right)
 
 	if(left < right)
 	{
-		// Áß°£ ÁöÁ¡À» °è»êÇÑ´Ù.
+		// ì¤‘ê°„ ì§€ì ì„ ê³„ì‚°í•œë‹¤.
 		mid = (left+right) / 2;
 
-		// µÑ·Î ³ª´²¼­ °¢°¢À» Á¤·ÄÇÑ´Ù.
+		// ë‘˜ë¡œ ë‚˜ëˆ ì„œ ê°ê°ì„ ì •ë ¬í•œë‹¤.
 		MergeSort(arr, left, mid);
 		MergeSort(arr, mid+1, right);
 
-		// Á¤·ÄµÈ µÎ ¹è¿­À» º´ÇÕÇÑ´Ù.
+		// ì •ë ¬ëœ ë‘ ë°°ì—´ì„ ë³‘í•©í•œë‹¤.
 		MergeTwoArea(arr, left, mid, right);
 	}
 }
@@ -60,7 +60,7 @@ int main(void)
 	int arr[7] = {3, 2, 4, 1, 7, 6, 5};
 	int i;
 
-	// ¹è¿­ arrÀÇ ÀüÃ¼ ¿µ¿ª Á¤·Ä 
+	// ë°°ì—´ arrì˜ ì „ì²´ ì˜ì—­ ì •ë ¬ 
 	MergeSort(arr, 0, sizeof(arr)/sizeof(int)-1);
 
 	for(i=0; i<7; i++)

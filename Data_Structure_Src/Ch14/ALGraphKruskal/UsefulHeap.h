@@ -20,7 +20,7 @@ typedef struct _heap
 	HData heapArr[HEAP_LEN];
 } Heap;
 
-/*** Heap °ü·Ã ¿¬»êµé ****/
+/*** Heap ê´€ë ¨ ì—°ì‚°ë“¤ ****/
 void HeapInit(Heap * ph, PriorityComp pc);
 int HIsEmpty(Heap * ph);
 

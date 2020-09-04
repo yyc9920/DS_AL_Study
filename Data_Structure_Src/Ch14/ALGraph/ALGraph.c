@@ -5,14 +5,14 @@
 
 int WhoIsPrecede(int data1, int data2);
 
-// ±×·¡ÇÁÀÇ ÃÊ±âÈ­
+// ê·¸ë˜í”„ì˜ ì´ˆê¸°í™”
 void GraphInit(ALGraph * pg, int nv)
 {
 	int i;	
 
 	pg->adjList = (List*)malloc(sizeof(List)*nv);
 	pg->numV = nv;
-	pg->numE = 0;     // ÃÊ±âÀÇ °£¼± ¼ö´Â 0°³
+	pg->numE = 0;     // ì´ˆê¸°ì˜ ê°„ì„  ìˆ˜ëŠ” 0ê°œ
 
 	for(i=0; i<nv; i++)
 	{
@@ -21,14 +21,14 @@ void GraphInit(ALGraph * pg, int nv)
 	}
 }
 
-// ±×·¡ÇÁ ¸®¼Ò½ºÀÇ ÇØÁ¦
+// ê·¸ë˜í”„ ë¦¬ì†ŒìŠ¤ì˜ í•´ì œ
 void GraphDestroy(ALGraph * pg)
 {
 	if(pg->adjList != NULL)
 		free(pg->adjList);
 }
 
-// °£¼±ÀÇ Ãß°¡
+// ê°„ì„ ì˜ ì¶”ê°€
 void AddEdge(ALGraph * pg, int fromV, int toV)
 {
 	LInsert(&(pg->adjList[fromV]), toV);
@@ -36,7 +36,7 @@ void AddEdge(ALGraph * pg, int fromV, int toV)
 	pg->numE += 1;
 }
 
-// À¯Æ¿¸®Æ¼ ÇÔ¼ö: °£¼±ÀÇ Á¤º¸ Ãâ·Â
+// ìœ í‹¸ë¦¬í‹° í•¨ìˆ˜: ê°„ì„ ì˜ ì •ë³´ ì¶œë ¥
 void ShowGraphEdgeInfo(ALGraph * pg)
 {
 	int i;
@@ -44,7 +44,7 @@ void ShowGraphEdgeInfo(ALGraph * pg)
 
 	for(i=0; i<pg->numV; i++)
 	{
-		printf("%c¿Í ¿¬°áµÈ Á¤Á¡: ", i + 65);
+		printf("%cì™€ ì—°ê²°ëœ ì •ì : ", i + 65);
 		
 		if(LFirst(&(pg->adjList[i]), &vx))
 		{

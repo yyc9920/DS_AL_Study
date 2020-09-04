@@ -3,7 +3,7 @@
 
 #include "BinaryTree3.h"
 
-// Æ®¸®ÀÇ ±ÕÇüÀ» Àâ´Â´Ù.
+// íŠ¸ë¦¬ì˜ ê· í˜•ì„ ì¡ëŠ”ë‹¤.
 BTreeNode * Rebalance(BTreeNode ** pRoot);
 
 #endif

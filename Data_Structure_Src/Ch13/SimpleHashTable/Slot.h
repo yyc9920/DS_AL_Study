@@ -15,5 +15,5 @@ typedef struct _slot
 	enum SlotStatus status;
 }Slot;
 
-// Slot°ú °ü·ÃÇØ¼­´Â º°µµÀÇ ÇÔ¼ö¸¦ Á¤ÀÇÇÏÁö ¾Ê´Â´Ù.
+// Slotê³¼ ê´€ë ¨í•´ì„œëŠ” ë³„ë„ì˜ í•¨ìˆ˜ë¥¼ ì •ì˜í•˜ì§€ ì•ŠëŠ”ë‹¤.
 #endif

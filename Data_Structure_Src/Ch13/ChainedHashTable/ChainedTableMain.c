@@ -17,7 +17,7 @@ int main(void)
 
 	TBLInit(&myTbl, MyHashFunc);
 
-	// µ¥ÀÌÅÍ ÀÔ·Â ///////
+	// ë°ì´í„° ì…ë ¥ ///////
 	np = MakePersonData(900254, "Lee", "Seoul");
 	TBLInsert(&myTbl, GetSSN(np), np);
 
@@ -27,7 +27,7 @@ int main(void)
 	np = MakePersonData(900827, "HAN", "Kangwon");
 	TBLInsert(&myTbl, GetSSN(np), np);
 
-	// µ¥ÀÌÅÍ Å½»ö ///////
+	// ë°ì´í„° íƒìƒ‰ ///////
 	sp = TBLSearch(&myTbl, 900254);
 	if(sp != NULL)
 		ShowPerInfo(sp);
@@ -40,7 +40,7 @@ int main(void)
 	if(sp != NULL)
 		ShowPerInfo(sp);
 
-	// µ¥ÀÌÅÍ »èÁ¦ ///////
+	// ë°ì´í„° ì‚­ì œ ///////
 	rp = TBLDelete(&myTbl, 900254);
 	if(rp != NULL)
 		free(rp);

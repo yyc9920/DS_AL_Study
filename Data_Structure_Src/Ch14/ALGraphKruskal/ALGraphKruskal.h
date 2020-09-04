@@ -6,7 +6,7 @@
 
 #include "ALEdge.h"
 
-// Á¤Á¡ÀÇ ÀÌ¸§µéÀ» »ó¼öÈ­
+// ì •ì ì˜ ì´ë¦„ë“¤ì„ ìƒìˆ˜í™”
 enum {A, B, C, D, E, F, G, H, I, J};
 
 typedef struct _ual
@@ -15,28 +15,28 @@ typedef struct _ual
 	int numE;
 	List * adjList;
 	int * visitInfo;
-	PQueue pqueue;    // °£¼±ÀÇ °¡ÁßÄ¡ Á¤º¸ ÀúÀå
+	PQueue pqueue;    // ê°„ì„ ì˜ ê°€ì¤‘ì¹˜ ì •ë³´ ì €ì¥
 } ALGraph;
 
-// ±×·¡ÇÁÀÇ ÃÊ±âÈ­
+// ê·¸ë˜í”„ì˜ ì´ˆê¸°í™”
 void GraphInit(ALGraph * pg, int nv);
 
-// ±×·¡ÇÁÀÇ ¸®¼Ò½º ÇØÁ¦
+// ê·¸ë˜í”„ì˜ ë¦¬ì†ŒìŠ¤ í•´ì œ
 void GraphDestroy(ALGraph * pg);
 
-// °£¼±ÀÇ Ãß°¡
+// ê°„ì„ ì˜ ì¶”ê°€
 void AddEdge(ALGraph * pg, int fromV, int toV, int weight);
 
-// °£¼±ÀÇ Á¤º¸ Ãâ·Â
+// ê°„ì„ ì˜ ì •ë³´ ì¶œë ¥
 void ShowGraphEdgeInfo(ALGraph * pg);
 
-// Depth First Search: Á¤Á¡ÀÇ Á¤º¸ Ãâ·Â
+// Depth First Search: ì •ì ì˜ ì •ë³´ ì¶œë ¥
 void DFShowGraphVertex(ALGraph * pg, int startV);
 
-// Å©·ç½ºÄ® ÃÖ¼Ò ºñ¿ë ½ÅÀå Æ®¸®ÀÇ ±¸¼º
+// í¬ë£¨ìŠ¤ì¹¼ ìµœì†Œ ë¹„ìš© ì‹ ì¥ íŠ¸ë¦¬ì˜ êµ¬ì„±
 void ConKruskalMST(ALGraph * pg);
 
-// °£¼±ÀÇ °¡ÁßÄ¡ Á¤º¸ Ãâ·Â
+// ê°„ì„ ì˜ ê°€ì¤‘ì¹˜ ì •ë³´ ì¶œë ¥
 void ShowGraphEdgeWeightInfo(ALGraph * pg);
 
 #endif

@@ -4,7 +4,7 @@
 int main(void)
 {
 	ALGraph graph;
-	GraphInit(&graph, 7);      // A, B, C, D, E, F, GÀÇ Á¤Á¡ »ı¼º
+	GraphInit(&graph, 7);      // A, B, C, D, E, F, Gì˜ ì •ì  ìƒì„±
 
 	AddEdge(&graph, A, B);
 	AddEdge(&graph, A, D);

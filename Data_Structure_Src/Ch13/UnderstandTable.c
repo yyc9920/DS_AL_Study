@@ -2,8 +2,8 @@
 
 typedef struct _empInfo
 {
-	int empNum;    // Á÷¿øÀÇ °íÀ¯¹øÈ£
-	int age;     // Á÷¿øÀÇ ³ªÀÌ
+	int empNum;    // ì§ì›ì˜ ê³ ìœ ë²ˆí˜¸
+	int age;     // ì§ì›ì˜ ë‚˜ì´
 }EmpInfo;
 
 int main(void)
@@ -12,14 +12,14 @@ int main(void)
 	EmpInfo ei;
 	int eNum;
 
-	printf("»ç¹ø°ú ³ªÀÌ ÀÔ·Â: ");
+	printf("ì‚¬ë²ˆê³¼ ë‚˜ì´ ì…ë ¥: ");
 	scanf("%d %d", &(ei.empNum), &(ei.age));
-	empInfoArr[ei.empNum] = ei;    // ´Ü¹ø¿¡ ÀúÀå!
+	empInfoArr[ei.empNum] = ei;    // ë‹¨ë²ˆì— ì €ì¥!
 
-	printf("È®ÀÎÇÏ°íÇÂ Á÷¿øÀÇ »ç¹ø ÀÔ·Â: ");
+	printf("í™•ì¸í•˜ê³ í”ˆ ì§ì›ì˜ ì‚¬ë²ˆ ì…ë ¥: ");
 	scanf("%d", &eNum);
 
-	ei = empInfoArr[eNum];    // ´Ü¹ø¿¡ Å½»ö!
-	printf("»ç¹ø %d, ³ªÀÌ %d \n", ei.empNum, ei.age);
+	ei = empInfoArr[eNum];    // ë‹¨ë²ˆì— íƒìƒ‰!
+	printf("ì‚¬ë²ˆ %d, ë‚˜ì´ %d \n", ei.empNum, ei.age);
 	return 0;
 }

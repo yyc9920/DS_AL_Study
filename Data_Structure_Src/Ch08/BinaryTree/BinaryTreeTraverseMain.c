@@ -3,7 +3,7 @@
 
 void InorderTraverse(BTreeNode * bt)
 {
-	if(bt == NULL)    // bt°¡ NULLÀÌ¸é Àç±Í Å»Ãâ! 
+	if(bt == NULL)    // btê°€ NULLì´ë©´ ìž¬ê·€ íƒˆì¶œ! 
 		return;
 
 	InorderTraverse(bt->left); 

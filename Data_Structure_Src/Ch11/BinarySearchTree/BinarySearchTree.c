@@ -18,11 +18,11 @@ void BSTInsert(BTreeNode ** pRoot, BSTData data)
 	BTreeNode * cNode = *pRoot;    // current node
 	BTreeNode * nNode = NULL;    // new node
 
-	// »õ·Î¿î ³ëµå°¡ Ãß°¡µÉ À§Ä¡¸¦ Ã£´Â´Ù.
+	// ìƒˆë¡œìš´ ë…¸ë“œê°€ ì¶”ê°€ë  ìœ„ì¹˜ë¥¼ ì°¾ëŠ”ë‹¤.
 	while(cNode != NULL)
 	{
 		if(data == GetData(cNode))
-			return;    // Å°ÀÇ Áßº¹À» Çã¿ëÇÏÁö ¾ÊÀ½
+			return;    // í‚¤ì˜ ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•ŠìŒ
 
 		pNode = cNode;
 
@@ -32,19 +32,19 @@ void BSTInsert(BTreeNode ** pRoot, BSTData data)
 			cNode = GetRightSubTree(cNode);
 	}
 	
-	// pNodeÀÇ ¼­ºê ³ëµå¿¡ Ãß°¡ÇÒ »õ ³ëµåÀÇ »ý¼º
-	nNode = MakeBTreeNode();    // »õ ³ëµåÀÇ »ý¼º
-	SetData(nNode, data);    // »õ ³ëµå¿¡ µ¥ÀÌÅÍ ÀúÀå
+	// pNodeì˜ ì„œë¸Œ ë…¸ë“œì— ì¶”ê°€í•  ìƒˆ ë…¸ë“œì˜ ìƒì„±
+	nNode = MakeBTreeNode();    // ìƒˆ ë…¸ë“œì˜ ìƒì„±
+	SetData(nNode, data);    // ìƒˆ ë…¸ë“œì— ë°ì´í„° ì €ìž¥
 
-	// pNodeÀÇ ¼­ºê ³ëµå¿¡ »õ ³ëµå¸¦ Ãß°¡
-	if(pNode != NULL)    // »õ ³ëµå°¡ ·çÆ® ³ëµå°¡ ¾Æ´Ï¶ó¸é,
+	// pNodeì˜ ì„œë¸Œ ë…¸ë“œì— ìƒˆ ë…¸ë“œë¥¼ ì¶”ê°€
+	if(pNode != NULL)    // ìƒˆ ë…¸ë“œê°€ ë£¨íŠ¸ ë…¸ë“œê°€ ì•„ë‹ˆë¼ë©´,
 	{
 		if(data < GetData(pNode))
 			MakeLeftSubTree(pNode, nNode);
 		else
 			MakeRightSubTree(pNode, nNode);
 	}
-	else    // »õ ³ëµå°¡ ·çÆ® ³ëµå¶ó¸é,
+	else    // ìƒˆ ë…¸ë“œê°€ ë£¨íŠ¸ ë…¸ë“œë¼ë©´,
 	{
 		*pRoot = nNode;
 	}

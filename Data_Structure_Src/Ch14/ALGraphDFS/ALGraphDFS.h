@@ -3,30 +3,30 @@
 
 #include "DLinkedList.h"
 
-// Á¤Á¡ÀÇ ÀÌ¸§µéÀ» »ó¼öÈ­
+// ì •ì ì˜ ì´ë¦„ë“¤ì„ ìƒìˆ˜í™”
 enum {A, B, C, D, E, F, G, H, I, J};
 
 typedef struct _ual
 {
-	int numV;   // Á¤Á¡ÀÇ ¼ö
-	int numE;   // °£¼±ÀÇ ¼ö
-	List * adjList;   // °£¼±ÀÇ Á¤º¸
+	int numV;   // ì •ì ì˜ ìˆ˜
+	int numE;   // ê°„ì„ ì˜ ìˆ˜
+	List * adjList;   // ê°„ì„ ì˜ ì •ë³´
 	int * visitInfo;
 } ALGraph;
 
-// ±×·¡ÇÁÀÇ ÃÊ±âÈ­
+// ê·¸ë˜í”„ì˜ ì´ˆê¸°í™”
 void GraphInit(ALGraph * pg, int nv);
 
-// ±×·¡ÇÁÀÇ ¸®¼Ò½º ÇØÁ¦
+// ê·¸ë˜í”„ì˜ ë¦¬ì†ŒìŠ¤ í•´ì œ
 void GraphDestroy(ALGraph * pg);
 
-// °£¼±ÀÇ Ãß°¡
+// ê°„ì„ ì˜ ì¶”ê°€
 void AddEdge(ALGraph * pg, int fromV, int toV);
 
-// À¯Æ¿¸®Æ¼ ÇÔ¼ö: °£¼±ÀÇ Á¤º¸ Ãâ·Â
+// ìœ í‹¸ë¦¬í‹° í•¨ìˆ˜: ê°„ì„ ì˜ ì •ë³´ ì¶œë ¥
 void ShowGraphEdgeInfo(ALGraph * pg);
 
-// Depth First Search: Á¤Á¡ÀÇ Á¤º¸ Ãâ·Â
+// Depth First Search: ì •ì ì˜ ì •ë³´ ì¶œë ¥
 void DFShowGraphVertex(ALGraph * pg, int startV);
 
 #endif

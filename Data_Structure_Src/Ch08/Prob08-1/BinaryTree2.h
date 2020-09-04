@@ -1,7 +1,7 @@
 #ifndef __BINARY_TREE2_H__
 #define __BINARY_TREE2_H__
 
-// ¹®Á¦ 08-1 °ü·Ã DeleteTree ÇÔ¼öÀÇ ¼±¾ğÀÌ Ãß°¡µÈ Çì´õÆÄÀÏ
+// ë¬¸ì œ 08-1 ê´€ë ¨ DeleteTree í•¨ìˆ˜ì˜ ì„ ì–¸ì´ ì¶”ê°€ëœ í—¤ë”íŒŒì¼
 
 typedef int BTData;
 
