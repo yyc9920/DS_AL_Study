@@ -9,7 +9,7 @@ typedef struct _node
 
 int main(void)
 {
-	Node * head = NULL;    // NULL 포인터 초기화
+	Node * head = NULL;
 	Node * tail = NULL;
 	Node * cur = NULL;
 
@@ -31,16 +31,15 @@ int main(void)
 		newNode = (Node*)malloc(sizeof(Node));
 		newNode->data = readData;
 		newNode->next = NULL;
-    
-    /*
-		if(head == NULL) {
+
+		/*
+		if(head == NULL)
 			head = newNode;
-    }
 		else
 			tail->next = newNode;
-    */
+		*/
+		tail->next = newNode;
 
-    tail->next = newNode;
 		tail = newNode;
 	}
 	printf("\n");
@@ -54,7 +53,7 @@ int main(void)
 	else 
 	{
 		cur = head; 
-		//printf("%d  ", cur->data);   // 첫 번째 데이터 출력
+	//	printf("%d  ", cur->data);   // 첫 번째 데이터 출력
 		
 		while(cur->next != NULL)    // 두 번째 이후의 데이터 출력
 		{
@@ -74,8 +73,8 @@ int main(void)
 		Node * delNode = head;
 		Node * delNextNode = head->next;
 
-		//printf("%d을(를) 삭제합니다. \n", head->data);
-		//free(delNode);    // 첫 번째 노드의 삭제
+	//	printf("%d을(를) 삭제합니다. \n", head->data);
+	//	free(delNode);    // 첫 번째 노드의 삭제
 		
 		while(delNextNode != NULL)    // 두 번째 이후의 노드 삭제 위한 반복문
 		{
