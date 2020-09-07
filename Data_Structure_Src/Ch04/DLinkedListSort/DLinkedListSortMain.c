@@ -3,10 +3,10 @@
 
 int WhoIsPrecede(int d1, int d2)
 {
-	if(d1 < d2)
-		return 0;    // d1이 정렬 순서상 앞선다.
+	if(d1 > d2)
+		return 0;    // d2가 정렬 순서상 앞선다.
 	else
-		return 1;    // d2가 정렬 순서상 앞서거나 같다.
+		return 1;    // d1이 정렬 순서상 앞서거나 같다.
 }
 
 int main(void)

@@ -1,5 +1,8 @@
-all: ArrayList.o
-	        gcc -g ArrayList.o ListMain.c -o ListMain 
+all: DLinkedList.o
+	        gcc -g DLinkedList.o DLinkedListSortMain.c -o DLinkedListSortMain 
 
-ArrayList.o: ArrayList.c ArrayList.h
-	        gcc -c ArrayList.c ArrayList.h
+DLinkedList.o: DLinkedList.c DLinkedList.h
+	        gcc -c DLinkedList.c DLinkedList.h
+
+clean : 
+					rm -rf DLinkedList.o DLinkedList.h.gch DLinkedListSortMain
