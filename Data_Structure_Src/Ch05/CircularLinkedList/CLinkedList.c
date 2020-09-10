@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Answer/CLinkedList.h"
 #include "CLinkedList.h"
 
 void ListInit(List * plist)
@@ -12,12 +13,35 @@ void ListInit(List * plist)
 
 void LInsertFront(List * plist, Data data)
 {
-  // 직접 채우기
+  Node * newNode = (Node*)malloc(sizeof(Node));
+  newNode->data = data;
+
+  if(plist->tail == NULL) {
+    plist->tail = newNode;
+    newNode->next = newNode;
+  }else {
+    newNode->next = plist->tail->next;
+    plist->tail->next = newNode;
+  }
+
+  plist->numOfData++;
 }
 
 void LInsert(List * plist, Data data)
 {
-  // 직접 채우기
+  Node * newNode = (Node*)malloc(sizeof(Node));
+  newNode->data = data;
+
+  if(plist->tail == NULL) {
+    plist->tail = newNode;
+    newNode->next = newNode;
+  }else {
+    newNode->next = plist->tail->next;
+    plist->tail->next = newNode;
+    plist->tail = newNode;
+  }
+
+  plist->numOfData++;
 }
 
 int LFirst(List * plist, Data * pdata)
